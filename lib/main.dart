@@ -49,7 +49,6 @@ class _QuizPageState extends State<QuizPage> {
         ),
         Expanded(
           child: Padding(
-            padding: EdgeInsets.all(15.0),
             child: TextButton(
               child: Text(
                 'True',
@@ -65,17 +64,17 @@ class _QuizPageState extends State<QuizPage> {
                 backgroundColor: MaterialStatePropertyAll(Colors.green),
               ),
             ),
+            padding: EdgeInsets.all(15.0),
           ),
         ),
         Expanded(
           child: Padding(
-            padding: EdgeInsets.all(15.0),
             child: TextButton(
               child: Text(
                 'False',
                 style: TextStyle(
-                  fontSize: 20.0,
                   color: Colors.white,
+                  fontSize: 20.0,
                 ),
               ),
               onPressed: () {
@@ -85,6 +84,7 @@ class _QuizPageState extends State<QuizPage> {
                 backgroundColor: MaterialStatePropertyAll(Colors.red),
               ),
             ),
+            padding: EdgeInsets.all(15.0),
           ),
         ),
         //TODO: Add a Row here as your score keeper
