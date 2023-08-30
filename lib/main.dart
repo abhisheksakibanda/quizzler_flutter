@@ -64,20 +64,7 @@ class _QuizPageState extends State<QuizPage> {
               ),
               onPressed: () {
                 // The user picked true
-                if (quizBrain.getQuestionAnswer()) {
-                  scoreKeeper.add(Icon(
-                    Icons.check,
-                    color: Colors.green,
-                  ));
-                } else {
-                  scoreKeeper.add(Icon(
-                    Icons.close,
-                    color: Colors.red,
-                  ));
-                }
-                setState(() {
-                  quizBrain.nextQuestion();
-                });
+                checkAnswer(true);
               },
               style: ButtonStyle(
                 backgroundColor: MaterialStatePropertyAll(Colors.green),
@@ -98,20 +85,7 @@ class _QuizPageState extends State<QuizPage> {
               ),
               onPressed: () {
                 // The user picked false
-                if (!quizBrain.getQuestionAnswer()) {
-                  scoreKeeper.add(Icon(
-                    Icons.check,
-                    color: Colors.green,
-                  ));
-                } else {
-                  scoreKeeper.add(Icon(
-                    Icons.close,
-                    color: Colors.red,
-                  ));
-                }
-                setState(() {
-                  quizBrain.nextQuestion();
-                });
+                checkAnswer(false);
               },
               style: ButtonStyle(
                 backgroundColor: MaterialStatePropertyAll(Colors.red),
@@ -125,6 +99,23 @@ class _QuizPageState extends State<QuizPage> {
         )
       ],
     );
+  }
+
+  void checkAnswer(bool userPickedAnswer) {
+    setState(() {
+      if (quizBrain.getCorrectAnswer() == userPickedAnswer) {
+        scoreKeeper.add(Icon(
+          Icons.check,
+          color: Colors.green,
+        ));
+      } else {
+        scoreKeeper.add(Icon(
+          Icons.close,
+          color: Colors.red,
+        ));
+      }
+      quizBrain.nextQuestion();
+    });
   }
 }
 

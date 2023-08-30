@@ -1,9 +1,13 @@
 class Question {
-  String questionText = '';
-  bool questionAnswer = false;
+  String _questionText = '';
+  bool _questionAnswer = false;
 
   Question(String q, bool a) {
-    questionText = q;
-    questionAnswer = a;
+    _questionText = q;
+    _questionAnswer = a;
   }
+
+  bool get questionAnswer => _questionAnswer;
+
+  String get questionText => _questionText;
 }
