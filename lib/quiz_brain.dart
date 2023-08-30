@@ -2,6 +2,7 @@ import 'package:quizzler/question.dart';
 
 class QuizBrain {
   int _questionNumber = 0;
+  int _score = 0;
 
   List<Question> _questionBank = [
     Question('Some cats are actually allergic to humans', true),
@@ -39,5 +40,16 @@ class QuizBrain {
     if (_questionNumber < (_questionBank.length - 1)) {
       _questionNumber++;
     }
+  }
+
+  int getScore() => _score;
+
+  void increaseScore() => _score++;
+
+  bool isFinished() => _questionNumber == _questionBank.length - 1;
+
+  void reset() {
+    _questionNumber = 0;
+    _score = 0;
   }
 }
